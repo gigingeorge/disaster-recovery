@@ -1,0 +1,27 @@
+---
+- name: AMI Rotation
+  hosts: localhost
+  vars:
+    access_key: "access_key"
+    secret_key: "secret_key"
+  tasks:
+  - name: Getting all AMI info
+    ec2_ami_info:
+      aws_access_key: "{{ access_key }}"
+      aws_secret_key: "{{ secret_key }}"
+      region: "ap-south-1"
+      filters:
+        name: "ami-packer*"
+    register: ami_find
+  - name: Removing old AMI
+    ignore_errors: true
+    when: ami_find.images[1].name
+    ec2_ami:
+      aws_access_key: "{{ access_key }}"
+      aws_secret_key: "{{ secret_key }}"
+      region: "ap-south-1"
+      image_id: "{{ami_find.images[0].image_id}}"
+      delete_snapshot : true
+      state: absent
+
+

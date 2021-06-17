@@ -1,0 +1,10 @@
+yum install httpd -y
+service httpd restart
+chkconfig httpd on
+
+
+yum install git -y
+git clone https://github.com/gigingeorge/aws-elb-site  /var/www/html/myapp
+
+mv /var/www/html/myapp/* /var/www/html/
+
