@@ -5,7 +5,7 @@
 
 resource "aws_key_pair" "keypair" {
   key_name   = "devops-key"
-  public_key = "public_key"
+  public_key = "provide the public_key"
   tags = {
     Name = "devops-key"
   }
