@@ -23,7 +23,7 @@ Whenever a change is made by developer, via github webhook, it will execute the 
 
 So every time we have the latest AMI of our instance.
 
-The second scenario is, when our full infrastructure configured is crashed due to some unforeseen reasons, by executing a script(recovery.sh) will make our infrastructure along with the website contents up and running.
+The second scenario is, when our full infrastructure configured is crashed due to some unforeseen reasons, by executing a script (recovery.sh) will make our infrastructure along with the website contents up and running.
 
 I used Terraform to build the stack using the latest AMI we created earlier and Ansible to fetch the website contents from Git
 
